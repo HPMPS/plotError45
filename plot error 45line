@@ -1,0 +1,275 @@
+import h5py
+import numpy as np
+import matplotlib.pyplot as plt
+import torch
+import pandas as pd
+
+f1_layer1 = torch.load( "D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer1 at T=50_250_450\Predicted saturation field at T=50timestep layer1.pth")
+f1_layer1= np.array(f1_layer1.detach().cpu())
+f2_layer1 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer1 at T=50_250_450\Predicted saturation field at T=250timestep layer1.pth")
+f2_layer1 = np.array(f2_layer1.detach().cpu())
+f2_remove_layer1 =f2_layer1[:,:,20].flatten()
+f3_layer1 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer1 at T=50_250_450\Predicted saturation field at T=450timestep layer1.pth")
+f3_layer1 = np.array(f3_layer1.detach().cpu())
+f3_remove_layer1 =f3_layer1[:,:,20].flatten()
+truth1_layer1 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer1 at T=50_250_450\Ground truth of saturation field at T=50timestep layer1.pth")
+truth1_layer1 = np.array(truth1_layer1.detach().cpu())
+truth2_layer1 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer1 at T=50_250_450\Ground truth of saturation field at T=250timestep layer1.pth")
+truth2_layer1 = np.array(truth2_layer1.detach().cpu())
+truth2_remove_layer1 =truth2_layer1[:,:,20].flatten()
+truth3_layer1 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer1 at T=50_250_450\Ground truth of saturation field at T=450timestep layer1.pth")
+truth3_layer1 = np.array(truth3_layer1.detach().cpu())
+truth3_remove_layer1 =truth3_layer1[:,:,20].flatten()
+
+f1_layer2 = torch.load( "D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer2 at T=50_250_450\Predicted saturation field at T=50timestep layer2.pth")
+f1_layer2= np.array(f1_layer2.detach().cpu())
+f2_layer2 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer2 at T=50_250_450\Predicted saturation field at T=250timestep layer2.pth")
+f2_layer2 = np.array(f2_layer2.detach().cpu())
+f2_remove_layer2 =f2_layer2[:,:,20].flatten()
+f3_layer2 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer2 at T=50_250_450\Predicted saturation field at T=450timestep layer2.pth")
+f3_layer2 = np.array(f3_layer2.detach().cpu())
+f3_remove_layer2 =f3_layer2[:,:,20].flatten()
+truth1_layer2 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer2 at T=50_250_450\Ground truth of saturation field at T=50timestep layer2.pth")
+truth1_layer2 = np.array(truth1_layer2.detach().cpu())
+truth2_layer2 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer2 at T=50_250_450\Ground truth of saturation field at T=250timestep layer2.pth")
+truth2_layer2 = np.array(truth2_layer2.detach().cpu())
+truth2_remove_layer2=truth2_layer2[:,:,20].flatten()
+truth3_layer2 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer2 at T=50_250_450\Ground truth of saturation field at T=450timestep layer2.pth")
+truth3_layer2 = np.array(truth3_layer2.detach().cpu())
+truth3_remove_layer2 =truth3_layer2[:,:,20].flatten()
+
+f1_layer3 = torch.load( "D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer3 at T=50_250_450\Predicted saturation field at T=50timestep layer3.pth")
+f1_layer3 = np.array(f1_layer3.detach().cpu())
+f2_layer3 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer3 at T=50_250_450\Predicted saturation field at T=250timestep layer3.pth")
+f2_layer3 = np.array(f2_layer3.detach().cpu())
+f2_remove_layer3 = f2_layer3[:,:,20].flatten()
+f3_layer3 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer3 at T=50_250_450\Predicted saturation field at T=450timestep layer3.pth")
+f3_layer3 = np.array(f3_layer3.detach().cpu())
+f3_remove_layer3 =f3_layer3[:,:,20].flatten()
+truth1_layer3 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer3 at T=50_250_450\Ground truth of saturation field at T=50timestep layer3.pth")
+truth1_layer3 = np.array(truth1_layer3.detach().cpu())
+truth2_layer3 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer3 at T=50_250_450\Ground truth of saturation field at T=250timestep layer3.pth")
+truth2_layer3 = np.array(truth2_layer3.detach().cpu())
+truth2_remove_layer3=truth2_layer3[:,:,20].flatten()
+truth3_layer3 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer3 at T=50_250_450\Ground truth of saturation field at T=450timestep layer3.pth")
+truth3_layer3 = np.array(truth3_layer3.detach().cpu())
+truth3_remove_layer3 =truth3_layer3[:,:,20].flatten()
+
+f1_layer4 = torch.load( "D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer4 at T=50_250_450\Predicted saturation field at T=50timestep layer4.pth")
+f1_layer4 = np.array(f1_layer4.detach().cpu())
+f2_layer4 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer4 at T=50_250_450\Predicted saturation field at T=250timestep layer4.pth")
+f2_layer4 = np.array(f2_layer4.detach().cpu())
+f2_remove_layer4 = f2_layer4[:,:,20].flatten()
+f3_layer4 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer4 at T=50_250_450\Predicted saturation field at T=450timestep layer4.pth")
+f3_layer4 = np.array(f3_layer4.detach().cpu())
+f3_remove_layer4 =f3_layer4[:,:,20].flatten()
+truth1_layer4 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer4 at T=50_250_450\Ground truth of saturation field at T=50timestep layer4.pth")
+truth1_layer4 = np.array(truth1_layer4.detach().cpu())
+truth2_layer4 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer4 at T=50_250_450\Ground truth of saturation field at T=250timestep layer4.pth")
+truth2_layer4 = np.array(truth2_layer4.detach().cpu())
+truth2_remove_layer4=truth2_layer4[:,:,20].flatten()
+truth3_layer4 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer4 at T=50_250_450\Ground truth of saturation field at T=450timestep layer4.pth")
+truth3_layer4 = np.array(truth3_layer4.detach().cpu())
+truth3_remove_layer4 =truth3_layer4[:,:,20].flatten()
+
+f1_layer5 = torch.load( "D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer5 at T=50_250_450\Predicted saturation field at T=50timestep layer5.pth")
+f1_layer5 = np.array(f1_layer5.detach().cpu())
+f2_layer5 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer5 at T=50_250_450\Predicted saturation field at T=250timestep layer5.pth")
+f2_layer5 = np.array(f2_layer5.detach().cpu())
+f2_remove_layer5 = f2_layer5[:,:,20].flatten()
+f3_layer5 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Predicted saturation for layer5 at T=50_250_450\Predicted saturation field at T=450timestep layer5.pth")
+f3_layer5 = np.array(f3_layer5.detach().cpu())
+f3_remove_layer5 =f3_layer5[:,:,20].flatten()
+truth1_layer5 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer5 at T=50_250_450\Ground truth of saturation field at T=50timestep layer5.pth")
+truth1_layer5 = np.array(truth1_layer5.detach().cpu())
+truth2_layer5 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer5 at T=50_250_450\Ground truth of saturation field at T=250timestep layer5.pth")
+truth2_layer5 = np.array(truth2_layer5.detach().cpu())
+truth2_remove_layer5=truth2_layer5[:,:,20].flatten()
+truth3_layer5 = torch.load("D:\pycharm\pytorch\FNO-net\Frac CCS Ground truth of saturaion field  for layer5 at T=50_250_450\Ground truth of saturation field at T=450timestep layer5.pth")
+truth3_layer5 = np.array(truth3_layer5.detach().cpu())
+truth3_remove_layer5 =truth3_layer5[:,:,20].flatten()
+
+'''
+f1 = torch.load( "D:\pycharm\pytorch\FNO-net\CCS Predicted saturation for layer1 at T=50_250_450\Predicted saturation field at T=50timestep layer1.pth")
+f1= np.array(f1.detach().cpu())
+f2 = torch.load("D:\pycharm\pytorch\FNO-net\CCS Predicted saturation for layer1 at T=50_250_450\Predicted saturation field at T=250timestep layer1.pth")
+f2 = np.array(f2.detach().cpu())
+f3 = torch.load("D:\pycharm\pytorch\FNO-net\CCS Predicted saturation for layer1 at T=50_250_450\Predicted saturation field at T=450timestep layer1.pth")
+f3 = np.array(f3.detach().cpu())
+truth1 = torch.load("D:\pycharm\pytorch\FNO-net\CCS Ground truth of saturaion field  for layer1 at T=50_250_450\Ground truth of saturation field at T=50timestep layer1.pth")
+truth1 = np.array(truth1.detach().cpu())
+truth2 = torch.load("D:\pycharm\pytorch\FNO-net\CCS Ground truth of saturaion field  for layer1 at T=50_250_450\Ground truth of saturation field at T=250timestep layer1.pth")
+truth2 = np.array(truth2.detach().cpu())
+truth3 = torch.load("D:\pycharm\pytorch\FNO-net\CCS Ground truth of saturaion field  for layer1 at T=50_250_450\Ground truth of saturation field at T=450timestep layer1.pth")
+truth3 = np.array(truth3.detach().cpu())'''
+index_layer1 = []
+for i in range(len(truth2_layer1[:,:,20].flatten())):
+    if truth2_layer1[:,:,20].flatten()[i] > 0.78:
+        index_layer1.append(i)
+for j in range(len(f2_layer1[:,:,20].flatten())):
+    if j in index_layer1:
+        a = truth2_remove_layer1[j]
+        f2_remove_layer1[j] = a
+index2_layer1 = []
+for i in range(len(truth3_layer1[:,:,20].flatten())):
+    if truth3_layer1[:,:,20].flatten()[i] > 0.78:
+        index2_layer1.append(i)
+for j in range(len(f3_layer1[:,:,20].flatten())):
+    if j in index2_layer1:
+        a = truth3_remove_layer1[j]
+        f3_remove_layer1[j] = a
+
+index_layer2 = []
+for i in range(len(truth2_layer2[:,:,20].flatten())):
+    if truth2_layer2[:,:,20].flatten()[i] > 0.78:
+        index_layer2.append(i)
+for j in range(len(f2_layer2[:,:,20].flatten())):
+    if j in index_layer2:
+        a = truth2_remove_layer2[j]
+        f2_remove_layer2[j] = a
+index2_layer2 = []
+for i in range(len(truth3_layer2[:,:,20].flatten())):
+    if truth3_layer2[:,:,20].flatten()[i] > 0.78:
+        index2_layer2.append(i)
+for j in range(len(f3_layer2[:,:,20].flatten())):
+    if j in index2_layer2:
+        a = truth3_remove_layer2[j]
+        f3_remove_layer2[j] = a
+
+index_layer3 = []
+for i in range(len(truth2_layer3[:,:,20].flatten())):
+    if truth2_layer3[:,:,20].flatten()[i] > 0.78:
+        index_layer3.append(i)
+for j in range(len(f2_layer3[:,:,20].flatten())):
+    if j in index_layer3:
+        a = truth2_remove_layer3[j]
+        f2_remove_layer3[j] = a
+index2_layer3 = []
+for i in range(len(truth3_layer3[:,:,20].flatten())):
+    if truth3_layer3[:,:,20].flatten()[i] > 0.78:
+        index2_layer3.append(i)
+for j in range(len(f3_layer3[:,:,20].flatten())):
+    if j in index2_layer3:
+        a = truth3_remove_layer3[j]
+        f3_remove_layer3[j] = a
+
+index_layer4 = []
+for i in range(len(truth2_layer4[:,:,20].flatten())):
+    if truth2_layer4[:,:,20].flatten()[i] > 0.78:
+        index_layer4.append(i)
+for j in range(len(f2_layer4[:,:,20].flatten())):
+    if j in index_layer4:
+        a = truth2_remove_layer4[j]
+        f2_remove_layer4[j] = a
+index2_layer4 = []
+for i in range(len(truth3_layer4[:,:,20].flatten())):
+    if truth3_layer4[:,:,20].flatten()[i] > 0.78:
+        index2_layer4.append(i)
+for j in range(len(f3_layer4[:,:,20].flatten())):
+    if j in index2_layer4:
+        a = truth3_remove_layer4[j]
+        f3_remove_layer4[j] = a
+
+index_layer5 = []
+for i in range(len(truth2_layer5[:,:,20].flatten())):
+    if truth2_layer5[:,:,20].flatten()[i] > 0.78:
+        index_layer5.append(i)
+for j in range(len(f2_layer5[:,:,20].flatten())):
+    if j in index_layer5:
+        a = truth2_remove_layer5[j]
+        f2_remove_layer5[j] = a
+index2_layer5 = []
+for i in range(len(truth3_layer5[:,:,20].flatten())):
+    if truth3_layer5[:,:,20].flatten()[i] > 0.78:
+        index2_layer5.append(i)
+for j in range(len(f3_layer5[:,:,20].flatten())):
+    if j in index2_layer5:
+        a = truth3_remove_layer5[j]
+        f3_remove_layer5[j] = a
+
+plt.figure(figsize=(5.0,3.0),dpi=300)
+
+plt.subplot(2,3,1)
+x_max = int(np.max(truth1_layer1))+1
+x =np.linspace(0,x_max)
+plt.plot(truth1_layer1[:,:,20].flatten(),f1_layer1[:,:,20].flatten(), 'r', marker='o',markersize=0.2, linewidth=0,label='T=50timestep layer1(128*128)')
+plt.plot(truth2_layer1[:,:,20].flatten(),f2_remove_layer1, 'b', marker='o',markersize=0.2, linewidth=0,label='T=250timestep layer1(128*128)')
+plt.plot(truth3_layer1[:,:,20].flatten(),f3_remove_layer1, 'g', marker='o',markersize=0.2, linewidth=0,label='T=450timestep layer1(128*128)')
+#plt.plot(sum_oil_field_true[3,:,2].flatten(),sum_oil_field_true[3,:,2].flatten() ,'k-')
+plt.plot(x,x,'k--',label="$\mathregular{45^o}$ line",linewidth=0.8)
+plt.yticks()
+#plt.xlabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+#plt.ylabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+plt.yticks(fontproperties = 'Arial', size = 4)
+plt.xticks(fontproperties = 'Arial', size = 4)
+plt.legend(prop={'family' : 'Arial', 'size' : 3},loc="upper left")
+plt.ylabel('Prediction value', fontdict={'family': 'Arial', 'size': 4, 'fontweight': 'bold'})
+plt.xlim(0,x_max)
+plt.ylim(0,x_max)
+
+plt.subplot(2,3,2)
+plt.plot(truth1_layer2[:,:,20].flatten(),f1_layer2[:,:,20].flatten(), 'r', marker='o',markersize=0.2, linewidth=0,label='T=50timestep layer2(128*128)')
+plt.plot(truth2_layer2[:,:,20].flatten(),f2_remove_layer2, 'b', marker='o',markersize=0.2, linewidth=0,label='T=250timestep layer2(128*128)')
+plt.plot(truth3_layer2[:,:,20].flatten(),f3_remove_layer2, 'g', marker='o',markersize=0.2, linewidth=0,label='T=450timestep layer2(128*128)')
+#plt.plot(sum_oil_field_true[3,:,2].flatten(),sum_oil_field_true[3,:,2].flatten() ,'k-')
+plt.plot(x,x,'k--',label="$\mathregular{45^o}$ line",linewidth=0.8)
+plt.yticks()
+#plt.xlabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+#plt.ylabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+plt.yticks(fontproperties = 'Arial', size = 4)
+plt.xticks(fontproperties = 'Arial', size = 4)
+plt.legend(prop={'family' : 'Arial', 'size' : 3},loc="upper left")
+plt.xlim(0,x_max)
+plt.ylim(0,x_max)
+
+plt.subplot(2,3,3)
+plt.plot(truth1_layer3[:,:,20].flatten(),f1_layer3[:,:,20].flatten(), 'r', marker='o',markersize=0.2, linewidth=0,label='T=50timestep layer3(128*128)')
+plt.plot(truth2_layer3[:,:,20].flatten(),f2_remove_layer3, 'b', marker='o',markersize=0.2, linewidth=0,label='T=250timestep layer3(128*128)')
+plt.plot(truth3_layer3[:,:,20].flatten(),f3_remove_layer3, 'g', marker='o',markersize=0.2, linewidth=0,label='T=450timestep layer3(128*128)')
+#plt.plot(sum_oil_field_true[3,:,2].flatten(),sum_oil_field_true[3,:,2].flatten() ,'k-')
+plt.plot(x,x,'k--',label="$\mathregular{45^o}$ line",linewidth=0.8)
+plt.yticks()
+#plt.xlabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+#plt.ylabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+plt.yticks(fontproperties = 'Arial', size = 4)
+plt.xticks(fontproperties = 'Arial', size = 4)
+plt.legend(prop={'family' : 'Arial', 'size' : 3},loc="upper left",)
+plt.xlim(0,x_max)
+plt.ylim(0,x_max)
+
+plt.subplot(2,2,3)
+plt.plot(truth1_layer4[:,:,20].flatten(),f1_layer4[:,:,20].flatten(), 'r', marker='o',markersize=0.2, linewidth=0,label='T=50timestep layer4(128*128)')
+plt.plot(truth2_layer4[:,:,20].flatten(),f2_remove_layer4, 'b', marker='o',markersize=0.2, linewidth=0,label='T=250timestep layer4(128*128)')
+plt.plot(truth3_layer4[:,:,20].flatten(),f3_remove_layer4, 'g', marker='o',markersize=0.2, linewidth=0,label='T=450timestep layer4(128*128)')
+#plt.plot(sum_oil_field_true[3,:,2].flatten(),sum_oil_field_true[3,:,2].flatten() ,'k-')
+plt.plot(x,x,'k--',label="$\mathregular{45^o}$ line",linewidth=0.8)
+plt.yticks()
+#plt.xlabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+#plt.ylabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+plt.yticks(fontproperties = 'Arial', size = 4)
+plt.xticks(fontproperties = 'Arial', size = 4)
+plt.legend(prop={'family' : 'Arial', 'size' : 4},loc="upper left")
+plt.xlabel('Ground truth value', fontdict={'family': 'Arial', 'size': 4, 'fontweight': 'bold'})
+plt.ylabel('Prediction value', fontdict={'family': 'Arial', 'size': 4, 'fontweight': 'bold'})
+plt.xlim(0,x_max)
+plt.ylim(0,x_max)
+
+plt.subplot(2,2,4)
+plt.plot(truth1_layer5[:,:,20].flatten(),f1_layer5[:,:,20].flatten(), 'r', marker='o',markersize=0.2, linewidth=0,label='T=50timestep layer5(128*128)')
+plt.plot(truth2_layer5[:,:,20].flatten(),f2_remove_layer5, 'b', marker='o',markersize=0.2, linewidth=0,label='T=250timestep layer5(128*128)')
+plt.plot(truth3_layer5[:,:,20].flatten(),f3_remove_layer5, 'g', marker='o',markersize=0.2, linewidth=0,label='T=450timestep layer5(128*128)')
+#plt.plot(sum_oil_field_true[3,:,2].flatten(),sum_oil_field_true[3,:,2].flatten() ,'k-')
+plt.plot(x,x,'k--',label="$\mathregular{45^o}$ line",linewidth=0.8)
+plt.yticks()
+#plt.xlabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+#plt.ylabel('Water rate [$\mathregular{m^3}$/day]',fontdict={'family' : 'Arial', 'size' : 8})
+plt.yticks(fontproperties = 'Arial', size = 4)
+plt.xticks(fontproperties = 'Arial', size = 4)
+plt.legend(prop={'family' : 'Arial', 'size' : 4},loc="upper left")
+plt.xlabel('Ground truth value', fontdict={'family': 'Arial', 'size': 4, 'fontweight': 'bold'})
+plt.ylabel('Prediction value', fontdict={'family': 'Arial', 'size': 4, 'fontweight': 'bold'})
+plt.xlim(0,x_max)
+plt.ylim(0,x_max)
+
+plt.savefig("D:/Reaserch work/coarse grid paper/3d to 4d/frac_CCS_45line", dpi=300)
+plt.show()
